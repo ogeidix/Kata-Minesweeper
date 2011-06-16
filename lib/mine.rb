@@ -4,7 +4,7 @@ class Mine
     true
   end
   
-  def reveal
+  def reveal(field)
     "*"
   end
   

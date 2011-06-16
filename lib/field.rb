@@ -5,18 +5,18 @@ class Field
     @columns = columns
     @disposition = []
     disposition = disposition.split(//)
-    @columns.times { @disposition << generate_square(disposition.shift) }
+    @columns.times { |i| @disposition << generate_square(disposition.shift, 1,i+1 ) }
   end
   
   def reveal
     result = ""
-    @disposition.each { |square| result += square.reveal }
+    @disposition.each { |square| result += square.reveal(self) }
     result
   end
   
-  def generate_square(input)
+  def generate_square(input, r, c)
     return Mine.new if input=='*'
-    return Square.new
+    return Square.new(r,c)
   end
   
   def getSquare(row,column)
