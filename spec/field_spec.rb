@@ -1,6 +1,3 @@
-require "./lib/null_square"
-require "./lib/mine"
-require "./lib/square"
 require "./lib/field"
 
 describe "A field instance" do

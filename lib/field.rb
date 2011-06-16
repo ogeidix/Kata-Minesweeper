@@ -1,17 +1,23 @@
+require "./lib/minesweeper_rules"
+require "./lib/null_square"
+
 class Field
   
-  def initialize(rows,columns,disposition)
+  def initialize(rows,columns,disposition,rules = MinesweeperRules.new)
     @rows = rows
     @columns = columns
     @disposition = []
+    @rules = rules
     disposition = disposition.split(//)
     @rows.times { |r|
       row = []
-      @columns.times { |c| row << generate_square(disposition.shift, r+1,c+1 ) }
+      @columns.times { |c| row << @rules.generate_square(disposition.shift, r+1,c+1 ) }
       @disposition << row
       disposition.shift
     }
   end
+  
+  attr_reader :rows, :columns
   
   def reveal
     result = ""
@@ -21,10 +27,11 @@ class Field
     }
     return result
   end
-  
-  def generate_square(input, r, c)
-    return Mine.new if input=='*'
-    return Square.new(r,c)
+
+  def next_iteration!(n = 1)
+    n.times { 
+      @disposition = @rules.next_iteration(self)
+    }
   end
   
   def getSquare(row,column)

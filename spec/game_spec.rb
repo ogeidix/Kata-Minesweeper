@@ -1,7 +1,3 @@
-require "./lib/null_square"
-require "./lib/mine"
-require "./lib/square"
-require "./lib/field"
 require "./lib/game"
 
 describe "A game instance" do

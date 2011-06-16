@@ -1,7 +1,11 @@
+require "./lib/field"
+require "./lib/minesweeper_rules"
+
 class Game
     
-    def initialize(input)
+    def initialize(input, rules = MinesweeperRules.new)
       @fields = []
+      @rules = rules
       parse_init_input(input)
     end
     
@@ -14,8 +18,14 @@ class Game
       result
     end
     
-    def add_field(rows, columns, input)
-      @fields << Field.new(rows,columns,input) if rows > 0 && columns > 0
+    def next_iteration!(n = 1)
+      @fields.each { |field|
+        field.next_iteration!(n)
+      }
+    end
+    
+    def add_field(rows, columns, input, rules)
+      @fields << Field.new(rows,columns,input,rules) if rows > 0 && columns > 0
     end
     
     private
@@ -24,7 +34,7 @@ class Game
       first_line = input.shift
       until first_line == "0 0" or input.size == 0
         rows, columns = first_line.split(" ")
-        add_field(rows.to_i, columns.to_i, input.shift(rows.to_i).join("\n"))
+        add_field(rows.to_i, columns.to_i, input.shift(rows.to_i).join("\n"), @rules)
         first_line = input.shift
       end
     end
