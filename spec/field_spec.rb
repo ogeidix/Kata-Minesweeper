@@ -20,7 +20,7 @@ describe "A field instance" do
       field = Field.new(1,4,"....")
       field.reveal.should == "0000"
     end
-    it "should take one-mine input and reveal its content" do
+    pending "should take one-mine input and reveal its content" do
       field = Field.new(1,4,".*..")
       field.reveal.should == "1*10"      
     end
@@ -30,4 +30,7 @@ describe "A field instance" do
     pending "should take no-mine input and reveal its content"
     pending "should take one-mine input and reveal its content"
   end
+  
+  pending "should return a single square based on provided coordinates"
+  
 end
