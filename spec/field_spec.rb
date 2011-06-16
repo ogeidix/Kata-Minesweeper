@@ -21,15 +21,21 @@ describe "A field instance" do
       field = Field.new(1,4,"....")
       field.reveal.should == "0000"
     end
-    pending "should take one-mine input and reveal its content" do
+    it "should take one-mine input and reveal its content" do
       field = Field.new(1,4,".*..")
       field.reveal.should == "1*10"      
     end
   end
   
   describe "of 4x4" do  
-    pending "should take no-mine input and reveal its content"
-    pending "should take one-mine input and reveal its content"
+    it "should take no-mine input and reveal its content" do
+      field = Field.new(4,4,"....\n....\n....\n....\n")
+      field.reveal.should == "0000\n0000\n0000\n0000"
+    end
+    it "should take one-mine input and reveal its content" do
+      field = Field.new(4,4,"....\n.*..\n....\n....\n")
+      field.reveal.should == "1110\n1*10\n1110\n0000"
+    end
   end
   
   it "should return a single square based on provided coordinates" do
