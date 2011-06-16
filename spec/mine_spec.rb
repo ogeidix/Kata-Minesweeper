@@ -2,6 +2,9 @@ require "./lib/mine"
 
 describe "A mine instance" do
   
-  pending "should explode"
+  it "should explode" do
+    mine = Mine.new
+    mine.explode?.should be_true
+  end
   
 end
