@@ -4,7 +4,7 @@ require "./lib/square"
 require "./lib/field"
 require "./lib/game"
 
-describe "Acceptance test" do
+describe "Acceptance test for minesweeper" do
   
   it "Should take two complex field as input and reveal them" do
     game = Game.new <<-INPUT
@@ -33,5 +33,16 @@ Field #2:
 1*100
 OUTPUT
   end
+  
+end
+
+
+describe "Acceptance test for gameoflife" do
+  
+  pending "a blank field will remain blank"
+  
+  pending "a dying field will become blank"
+  
+  pending "a living field will live"
   
 end
