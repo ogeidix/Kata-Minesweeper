@@ -20,7 +20,10 @@ describe "A field instance" do
       field = Field.new(1,4,"....")
       field.reveal.should == "0000"
     end
-    pending "should take one-mine input and reveal its content"
+    it "should take one-mine input and reveal its content" do
+      field = Field.new(1,4,".*..")
+      field.reveal.should == "1*10"      
+    end
   end
   
   describe "of 4x4" do  
