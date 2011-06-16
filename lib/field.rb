@@ -3,11 +3,15 @@ class Field
   def initialize(rows,columns,disposition)
     @rows = rows
     @columns = columns
-    @disposition = generate_square(disposition)
+    @disposition = []
+    disposition = disposition.split(//)
+    @columns.times { @disposition << generate_square(disposition.shift) }
   end
   
   def reveal
-    @disposition.reveal
+    result = ""
+    @disposition.each { |square| result += square.reveal }
+    result
   end
   
   def generate_square(input)
