@@ -1,3 +1,4 @@
+require "./lib/mine"
 require "./lib/square"
 require "./lib/field"
 
@@ -7,6 +8,10 @@ describe "A field instance" do
     it "should take no-mine input and reveal its content" do
       field = Field.new(1,1,".")
       field.reveal.should == "0"
+    end
+    it "should take one mine input and reveal its content" do
+      field = Field.new(1,1,"*")
+      field.reveal.should == "*"
     end    
   end
   
