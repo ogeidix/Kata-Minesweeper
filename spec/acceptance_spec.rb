@@ -1,6 +1,12 @@
+require "./lib/null_square"
+require "./lib/mine"
+require "./lib/square"
+require "./lib/field"
+require "./lib/game"
+
 describe "Acceptance test" do
   
-  pending "Should take two complex field as input and reveal them" do
+  it "Should take two complex field as input and reveal them" do
     game = Game.new <<-INPUT
 4 4
 *...
