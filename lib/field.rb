@@ -20,7 +20,14 @@ class Field
   end
   
   def getSquare(row,column)
-    @disposition[column-1]
+    return @disposition[column-1] if coordinates_valid?(row,column)
+    return NullSquare.new
+  end
+  
+  private
+  def coordinates_valid?(row,column)
+    return false if (row < 1 || column < 1 || row > @rows || column > @columns)
+    return true
   end
 
 end

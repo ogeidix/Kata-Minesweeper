@@ -1,3 +1,4 @@
+require "./lib/null_square"
 require "./lib/mine"
 require "./lib/square"
 require "./lib/field"
@@ -36,4 +37,15 @@ describe "A field instance" do
     field.getSquare(1,1).should_not be_nil
   end
   
+  it "should return a single square also if coordinates are not valid" do
+    field = Field.new(1,1,'*')
+    coordinates = [
+      [0,0],  [0,1],  [0,2],
+      [1,0],  [1,1],  [1,2],
+      [2,0],  [2,1],  [2,2]     
+    ]
+    coordinates.each { |r,c|
+      field.getSquare(r,c).should_not be_nil  
+    }
+  end
 end
