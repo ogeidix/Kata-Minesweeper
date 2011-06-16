@@ -18,5 +18,9 @@ class Field
     return Mine.new if input=='*'
     return Square.new
   end
+  
+  def getSquare(row,column)
+    @disposition[column-1]
+  end
 
 end

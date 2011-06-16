@@ -31,6 +31,9 @@ describe "A field instance" do
     pending "should take one-mine input and reveal its content"
   end
   
-  pending "should return a single square based on provided coordinates"
+  it "should return a single square based on provided coordinates" do
+    field = Field.new(1,1,'*')
+    field.getSquare(1,1).should_not be_nil
+  end
   
 end
