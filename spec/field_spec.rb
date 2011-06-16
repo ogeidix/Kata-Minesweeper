@@ -16,7 +16,10 @@ describe "A field instance" do
   end
   
   describe "of 1x4" do  
-    pending "should take no-mine input and reveal its content"
+    it "should take no-mine input and reveal its content" do
+      field = Field.new(1,4,"....")
+      field.reveal.should == "0000"
+    end
     pending "should take one-mine input and reveal its content"
   end
   
