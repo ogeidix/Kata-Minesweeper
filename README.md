@@ -1,7 +1,7 @@
 KataMinesweeper
 ===============
 
-ORIGINAl SOURCE: <http://codingdojo.org/cgi-bin/wiki.pl?KataMinesweeper>
+ORIGINAL SOURCE: <http://codingdojo.org/cgi-bin/wiki.pl?KataMinesweeper>
 
 About this Kata
 ---------------
@@ -18,6 +18,7 @@ Have you ever played Minesweeper? It's a cute little game which comes within a c
 	....
 
 The same field including the hint numbers described above would look like this:
+
 	*100
 	2210
 	1*10
@@ -34,15 +35,13 @@ For each field, you must print the following message in a line alone:
 
 Where x stands for the number of the field (starting from 1). The next n lines should contain the field with the "." characters replaced by the number of adjacent mines to that square. There must be an empty line between field outputs.
 
-Clues
-
-As you may have already noticed, each square may have at most 8 adjacent squares.
+Clues: as you may have already noticed, each square may have at most 8 adjacent squares.
 
 
 Acceptance Test Cases
 --------------------------
 
-This is the input
+This is the input:
 
 	4 4
 	*...
@@ -55,7 +54,7 @@ This is the input
 	.*...
 	0 0
 
-and output:
+and this is the output:
 
 	Field #1:
 	*100
